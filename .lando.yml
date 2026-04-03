@@ -1,0 +1,25 @@
+name: simplevoting
+recipe: drupal11
+services:
+  appserver:
+    type: php:8.3
+    via: apache
+    webroot: web
+    xdebug: false
+
+  database:
+    type: mysql:8.0
+    portforward: true
+    creds:
+      database: simplevoting
+      user: simplevoting
+      password: simplevoting
+
+tooling:
+  composer:
+    service: appserver
+  php:
+    service: appserver
+  drush:
+    service: appserver
+    cmd: /app/vendor/bin/drush

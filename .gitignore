@@ -1,0 +1,37 @@
+# Ignore paths that contain user-generated content.
+web/files
+web/sites/*/files
+web/sites/*/private
+web/core
+web/modules/contrib
+web/profiles/contrib
+web/themes/contrib
+web/libraries
+vendor
+local.settings.php
+local.drush.yml
+local.site.yml
+local.services.yml
+*.local
+local.blt.yml
+deployment_identifier
+/travis_wait*
+/files-private
+.phpcs-cache
+/web/sites/default/settings.local.php
+/config/solr
+
+# Mac Files
+.DS_Store
+
+# Ignore devs trash
+.env
+.vscode
+.idea
+*.log
+*.sql
+*.zip
+*:Zone.Identifier
+._*
+!misc/*.zip
+!misc/**/*.zip

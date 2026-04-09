@@ -1,0 +1,40 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the Poll Manager module.
+ */
+
+use Drupal\Core\Database\Database;
+
+/**
+ * Implements hook_install().
+ *
+ * Adds unique keys to poll_submission to ensure database-level integrity.
+ */
+function poll_manager_install(): void {
+  $schema = Database::getConnection()->schema();
+
+  if ($schema->tableExists('poll_submission')) {
+    // 1. (question_id, user_id) - Prevents same user from voting twice on the same question.
+    $schema->addUniqueKey('poll_submission', 'unique_user_question', [
+      'question_id',
+      'user_id',
+    ]);
+
+    // 2. (question_id, external_voter_identifier) - Prevents same external voter from voting twice.
+    $schema->addUniqueKey('poll_submission', 'unique_external_voter_question', [
+      'question_id',
+      'external_voter_identifier',
+    ]);
+  }
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function poll_manager_uninstall(): void {
+  \Drupal::configFactory()
+    ->getEditable('poll_manager.settings')
+    ->delete();
+}

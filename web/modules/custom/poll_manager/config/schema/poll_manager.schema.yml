@@ -1,0 +1,7 @@
+poll_manager.settings:
+  type: config_object
+  label: "Poll Manager Settings"
+  mapping:
+    voting_enabled:
+      type: boolean
+      label: "Voting enabled"

@@ -1,0 +1,18 @@
+services:
+  poll_manager.vote_manager:
+    class: Drupal\poll_manager\Service\VoteManager
+    arguments:
+      - "@poll_manager.availability_manager"
+      - "@entity_type.manager"
+      - "@database"
+      - "@logger.factory"
+  poll_manager.result_manager:
+    class: Drupal\poll_manager\Service\PollResultManager
+    arguments:
+      - "@entity_type.manager"
+      - "@database"
+  poll_manager.availability_manager:
+    class: Drupal\poll_manager\Service\PollAvailabilityManager
+    arguments:
+      - "@config.factory"
+      - "@entity_type.manager"

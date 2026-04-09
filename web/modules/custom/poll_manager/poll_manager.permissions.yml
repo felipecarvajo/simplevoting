@@ -1,0 +1,12 @@
+administer poll questions:
+  title: "Administer poll questions"
+  description: "Create, edit and delete poll questions and choices."
+  restrict access: true
+
+cast poll vote:
+  title: "Cast a poll vote"
+  description: "Allow users to vote on polls."
+
+view poll results:
+  title: "View poll results"
+  description: "View poll totals regardless of per-question show_results setting."

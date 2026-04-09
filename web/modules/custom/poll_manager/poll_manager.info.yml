@@ -1,0 +1,7 @@
+name: Poll Manager
+type: module
+description: "Production-grade poll management system."
+core_version_requirement: ^10 || ^11
+package: Custom
+dependencies:
+  - image

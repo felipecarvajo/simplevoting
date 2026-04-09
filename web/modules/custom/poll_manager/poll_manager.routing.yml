@@ -1,0 +1,81 @@
+poll_manager.settings:
+  path: "/admin/config/poll-manager/settings"
+  defaults:
+    _form: 'Drupal\poll_manager\Form\PollSettingsForm'
+    _title: "Poll Manager Settings"
+  requirements:
+    _permission: "administer poll questions"
+
+poll_manager.choice_listing:
+  path: "/admin/poll-manager/questions/{poll_question}/choices"
+  defaults:
+    _controller: 'Drupal\poll_manager\Controller\PollChoiceAdminController::listing'
+    _title: "Poll Choices"
+  requirements:
+    _permission: "administer poll questions"
+    poll_question: \d+
+
+poll_manager.question_list:
+  path: "/admin/poll-manager/questions"
+  defaults:
+    _entity_list: "poll_question"
+    _title: "Poll Questions"
+  requirements:
+    _permission: "administer poll questions"
+
+poll_manager.list:
+  path: "/polls"
+  defaults:
+    _controller: 'Drupal\poll_manager\Controller\PollListController::listing'
+    _title: "Polls"
+  requirements:
+    _access: "TRUE"
+
+poll_manager.vote:
+  path: "/polls/{poll_question}"
+  defaults:
+    _form: 'Drupal\poll_manager\Form\PollVoteForm'
+    _title: "Vote"
+  requirements:
+    _permission: "cast poll vote"
+    poll_question: \d+
+
+poll_manager.api.questions:
+  path: "/api/v1/polls/questions"
+  defaults:
+    _controller: 'Drupal\poll_manager\Controller\Api\PollQuestionApiController::list'
+  requirements:
+    _user_is_logged_in: "TRUE"
+  options:
+    _auth: ["basic_auth", "cookie"]
+  methods: [GET]
+
+poll_manager.api.question_detail:
+  path: "/api/v1/polls/questions/{uuid}"
+  defaults:
+    _controller: 'Drupal\poll_manager\Controller\Api\PollQuestionApiController::detail'
+  requirements:
+    _user_is_logged_in: "TRUE"
+  options:
+    _auth: ["basic_auth", "cookie"]
+  methods: [GET]
+
+poll_manager.api.vote:
+  path: "/api/v1/polls/questions/{uuid}/vote"
+  defaults:
+    _controller: 'Drupal\poll_manager\Controller\Api\PollVoteApiController::submit'
+  requirements:
+    _permission: "cast poll vote"
+  options:
+    _auth: ["basic_auth", "cookie"]
+  methods: [POST]
+
+poll_manager.api.results:
+  path: "/api/v1/polls/questions/{uuid}/results"
+  defaults:
+    _controller: 'Drupal\poll_manager\Controller\Api\PollResultApiController::show'
+  requirements:
+    _user_is_logged_in: "TRUE"
+  options:
+    _auth: ["basic_auth", "cookie"]
+  methods: [GET]

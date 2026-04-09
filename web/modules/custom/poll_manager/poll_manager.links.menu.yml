@@ -1,0 +1,36 @@
+# Menu links for Poll Manager module.
+
+poll_manager.admin:
+  title: "Poll Manager"
+  description: "Manage polls."
+  route_name: poll_manager.question_list
+  parent: system.admin
+  weight: 50
+
+poll_manager.add_question:
+  title: "Add Poll Question"
+  description: "Register a new poll question."
+  route_name: entity.poll_question.add_form
+  parent: poll_manager.admin
+  weight: 1
+
+poll_manager.questions:
+  title: "List Poll Questions"
+  description: "View all registered poll questions."
+  route_name: poll_manager.question_list
+  parent: poll_manager.admin
+  weight: 2
+
+poll_manager.polls:
+  title: "List Polls"
+  description: "A list of all available polls"
+  route_name: poll_manager.list
+  parent: poll_manager.admin
+  weight: 3
+
+poll_manager.settings:
+  title: "Settings"
+  description: "Enable or disable polls globally."
+  route_name: poll_manager.settings
+  parent: poll_manager.admin
+  weight: 10

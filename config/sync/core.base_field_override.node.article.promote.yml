@@ -1,0 +1,24 @@
+uuid: 523686c4-12ce-4688-9c83-4a8899590782
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - node.type.article
+_core:
+  default_config_hash: RDuP1jcZGVZtdt1bNaMJ-KSp72XRKpYXwIK4_kOq6K8
+id: node.article.promote
+field_name: promote
+entity_type: node
+bundle: article
+label: 'Promovido para a página inicial'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: Habilitado
+  off_label: Desligado
+field_type: boolean

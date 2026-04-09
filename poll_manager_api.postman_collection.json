@@ -1,0 +1,401 @@
+{
+  "info": {
+    "_postman_id": "d4b9d052-b6ca-4f9c-9270-68d69fd1faac",
+    "name": "Poll Manager API",
+    "description": "REST Collection for the poll_manager module in Drupal.\n\n**Authentication:** HTTP Basic Auth — user `admin`, password `admin`.\n\n**Variables:**\n- `base_url` — Lando base URL (e.g., `http://simplevoting.lndo.site`)\n- `uuid` — UUID of a Poll Question.\n\nUpdate `base_url` with the port displayed by `lando start`.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "31068189"
+  },
+  "item": [
+    {
+      "name": "1. List active polls",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/v1/polls/questions",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "polls",
+            "questions"
+          ]
+        },
+        "description": "Returns a JSON array with all active polls."
+      },
+      "response": [
+        {
+          "name": "200 OK",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/v1/polls/questions",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "polls",
+                "questions"
+              ]
+            },
+            "description": "Returns a JSON array with all active polls."
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "body": "[\n  {\n    \"uuid\": \"6e48836e-4092-47ca-b810-bb9ad55c1737\",\n    \"title\": \"Favorite breed?\",\n    \"show_results\": true\n  }\n]"
+        }
+      ]
+    },
+    {
+      "name": "2. Get poll detail",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/v1/polls/questions/{{uuid}}",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "polls",
+            "questions",
+            "{{uuid}}"
+          ]
+        },
+        "description": "Returns poll data and its choices."
+      },
+      "response": [
+        {
+          "name": "200 OK",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/v1/polls/questions/{{uuid}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "polls",
+                "questions",
+                "{{uuid}}"
+              ]
+            },
+            "description": "Returns poll data and its choices."
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"uuid\": \"6e48836e-4092-47ca-b810-bb9ad55c1737\",\n  \"title\": \"Favorite breed?\",\n  \"show_results\": true,\n  \"choices\": [\n    { \"id\": 4, \"title\": \"Chow Chow\" }\n  ]\n}"
+        }
+      ]
+    },
+    {
+      "name": "3. Cast a vote",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"choice_id\": 1\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/api/v1/polls/questions/{{uuid}}/vote",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "polls",
+            "questions",
+            "{{uuid}}",
+            "vote"
+          ]
+        },
+        "description": "Registers a vote. Body must contain 'choice_id'."
+      },
+      "response": [
+        {
+          "name": "201 Created",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"choice_id\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/polls/questions/{{uuid}}/vote",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "polls",
+                "questions",
+                "{{uuid}}",
+                "vote"
+              ]
+            },
+            "description": "Registers a vote. Body must contain 'choice_id'."
+          },
+          "status": "Created",
+          "code": 201,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "body": "{\"message\": \"Your vote has been counted.\"}"
+        },
+        {
+          "name": "422 Duplicate",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"choice_id\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/polls/questions/{{uuid}}/vote",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "polls",
+                "questions",
+                "{{uuid}}",
+                "vote"
+              ]
+            },
+            "description": "Registers a vote. Body must contain 'choice_id'."
+          },
+          "status": "Unprocessable Entity",
+          "code": 422,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "body": "{\"message\": \"You have already voted on this poll.\", \"error_code\": \"VOTE_DUPLICATE\"}"
+        }
+      ]
+    },
+    {
+      "name": "4. Get results",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/v1/polls/questions/{{uuid}}/results",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "polls",
+            "questions",
+            "{{uuid}}",
+            "results"
+          ]
+        },
+        "description": "Returns the vote tally."
+      },
+      "response": [
+        {
+          "name": "200 OK",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/v1/polls/questions/{{uuid}}/results",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "polls",
+                "questions",
+                "{{uuid}}",
+                "results"
+              ]
+            },
+            "description": "Returns the vote tally."
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"uuid\": \"6e48836e-4092-47ca-b810-bb9ad55c1737\",\n  \"title\": \"Favorite breed?\",\n  \"total_votes\": 1,\n  \"choices\": [\n    { \"id\": 4, \"title\": \"Chow Chow\", \"votes\": 1, \"percentage\": 100 }\n  ]\n}"
+        }
+      ]
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "admin",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "admin",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://simplevoting.lndo.site",
+      "description": "Lando environment base URL."
+    },
+    {
+      "key": "uuid",
+      "value": "6e48836e-4092-47ca-b810-bb9ad55c1737",
+      "description": "UUID of the poll question."
+    }
+  ]
+}

@@ -858,9 +858,9 @@ $settings['migrate_node_migrate_type_classic'] = FALSE;
 #
 
 $databases['default']['default'] = array (
-  'database' => 'drupal11',
-  'username' => 'drupal11',
-  'password' => 'drupal11',
+  'database' => 'simplevoting',
+  'username' => 'simplevoting',
+  'password' => 'simplevoting',
   'prefix' => '',
   'host' => 'database',
   'port' => '3306',

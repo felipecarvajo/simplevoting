@@ -66,7 +66,7 @@
             }
           ],
           "cookie": [],
-          "body": "[\n  {\n    \"uuid\": \"6e48836e-4092-47ca-b810-bb9ad55c1737\",\n    \"title\": \"Favorite breed?\",\n    \"show_results\": true\n  }\n]"
+          "body": "[\n  {\n    \"uuid\": \"5597cb29-435f-4e02-972c-320ec906b02f\",\n    \"title\": \"Favorite breed?\",\n    \"show_results\": true\n  }\n]"
         }
       ]
     },
@@ -131,7 +131,7 @@
             }
           ],
           "cookie": [],
-          "body": "{\n  \"uuid\": \"6e48836e-4092-47ca-b810-bb9ad55c1737\",\n  \"title\": \"Favorite breed?\",\n  \"show_results\": true,\n  \"choices\": [\n    { \"id\": 4, \"title\": \"Chow Chow\" }\n  ]\n}"
+          "body": "{\n  \"uuid\": \"5597cb29-435f-4e02-972c-320ec906b02f\",\n  \"title\": \"Favorite breed?\",\n  \"show_results\": true,\n  \"choices\": [\n    { \"id\": 4, \"title\": \"Chow Chow\" }\n  ]\n}"
         }
       ]
     },
@@ -342,7 +342,7 @@
             }
           ],
           "cookie": [],
-          "body": "{\n  \"uuid\": \"6e48836e-4092-47ca-b810-bb9ad55c1737\",\n  \"title\": \"Favorite breed?\",\n  \"total_votes\": 1,\n  \"choices\": [\n    { \"id\": 4, \"title\": \"Chow Chow\", \"votes\": 1, \"percentage\": 100 }\n  ]\n}"
+          "body": "{\n  \"uuid\": \"5597cb29-435f-4e02-972c-320ec906b02f\",\n  \"title\": \"Favorite breed?\",\n  \"total_votes\": 1,\n  \"choices\": [\n    { \"id\": 4, \"title\": \"Chow Chow\", \"votes\": 1, \"percentage\": 100 }\n  ]\n}"
         }
       ]
     }
@@ -394,7 +394,7 @@
     },
     {
       "key": "uuid",
-      "value": "6e48836e-4092-47ca-b810-bb9ad55c1737",
+      "value": "5597cb29-435f-4e02-972c-320ec906b02f",
       "description": "UUID of the poll question."
     }
   ]

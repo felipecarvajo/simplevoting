@@ -10,7 +10,7 @@ services:
     php: .vscode/php.ini
 
   database:
-    type: mysql:8.0
+    type: mariadb:10.11
     portforward: true
     creds:
       database: simplevoting

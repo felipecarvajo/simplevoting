@@ -29,7 +29,6 @@ deployment_identifier
 .vscode
 .idea
 *.log
-*.sql
 *.zip
 *:Zone.Identifier
 ._*

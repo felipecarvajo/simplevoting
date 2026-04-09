@@ -2,6 +2,13 @@
 
 A robust Poll Management system built on Drupal 11. This project features a custom-built, production-grade module (`poll_manager`) that provides a decoupled voting architecture, RESTful API, and administrative tools.
 
+## Default Access
+
+For convenience during development, a default administrative user is already available:
+
+- **Username**: `admin`
+- **Password**: `admin`
+
 ## Key Components
 
 ### 1. Poll Manager Module

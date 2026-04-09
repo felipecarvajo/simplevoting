@@ -5,7 +5,9 @@ services:
     type: php:8.3
     via: apache
     webroot: web
-    xdebug: false
+    xdebug: true
+  config:
+    php: .vscode/php.ini
 
   database:
     type: mysql:8.0
@@ -14,6 +16,10 @@ services:
       database: simplevoting
       user: simplevoting
       password: simplevoting
+
+proxy:
+  appserver:
+    - simplevoting.lndo.site
 
 tooling:
   composer:
